@@ -30,16 +30,21 @@ namespace RestASPNET.Controllers
 
             return BadRequest("Invalid Input");
         }
+        private bool IsNumeric(string strNumber)
+        {
+            double number;
+            bool isNumber = double.TryParse(strNumber,
+                                            System.Globalization.NumberStyles.Any,
+                                            System.Globalization.NumberFormatInfo.InvariantInfo,
+                                            out number);
 
-        private int ConvertToDecimal(string firstNumber)
+            return isNumber;
+        }
+
+        private int ConvertToDecimal(string strNumber)
         {
             throw new NotImplementedException();
         }
 
-        private bool IsNumeric(string firstNumber)
-        {
-
-            throw new NotImplementedException();
-        }
     }
 }
