@@ -20,7 +20,7 @@ namespace RestASPNET.Controllers
         }
 
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
-        public IActionResult Get(string firstNumber, string secondNumber)
+        public IActionResult Sum(string firstNumber, string secondNumber)
         {
             if(IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
@@ -30,6 +30,55 @@ namespace RestASPNET.Controllers
 
             return BadRequest("Invalid Input");
         }
+
+        [HttpGet("sub/{firstNumber}/{secondNumber}")]
+        public IActionResult Sub(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var sum = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
+                return Ok(sum.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("times/{firstNumber}/{secondNumber}")]
+        public IActionResult Times(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var sum = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
+                return Ok(sum.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("div/{firstNumber}/{secondNumber}")]
+        public IActionResult Div(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var sum = ConvertToDecimal(firstNumber) / ConvertToDecimal(secondNumber);
+                return Ok(sum.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("average/{firstNumber}/{secondNumber}")]
+        public IActionResult Average(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var sum = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber)) / 2;
+                return Ok(sum.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
         private bool IsNumeric(string strNumber)
         {
             double number;
