@@ -41,10 +41,15 @@ namespace RestASPNET.Controllers
             return isNumber;
         }
 
-        private int ConvertToDecimal(string strNumber)
+        private decimal ConvertToDecimal(string strNumber)
         {
-            throw new NotImplementedException();
-        }
+            decimal decimalValue;
+            if (decimal.TryParse(strNumber, out decimalValue))
+            {
+                return decimalValue;
+            }
 
+            return 0;
+        }
     }
 }
