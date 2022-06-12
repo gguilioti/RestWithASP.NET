@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RestASPNET.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PersonController : ControllerBase
     {
 

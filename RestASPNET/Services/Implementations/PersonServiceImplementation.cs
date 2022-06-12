@@ -13,7 +13,7 @@ namespace RestASPNET.Services.Implementations
             return person;
         }
 
-        public void Delete(Person person)
+        public void Delete(long id)
         {
             
         }
@@ -51,9 +51,9 @@ namespace RestASPNET.Services.Implementations
             return new Person
             {
                 Id = IncrementAndGet(),
-                FirstName = "Person Name" +1,
-                LastName = "Person LastName" +1,
-                Adress = "Some Adress" +1,
+                FirstName = "Person Name" +i,
+                LastName = "Person LastName" +i,
+                Adress = "Some Adress" +i,
                 Gender = "Male"
             };
         }
